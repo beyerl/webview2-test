@@ -10,12 +10,20 @@
 Webview2 Test page
 </body>
 <script>
-    async function callBridge(testMessage){
+    async function callBridge(testMessage) {
+      try {
+        // Assuming chrome.webview.hostObjects.bridge is available or properly initialized
         const bridge = chrome.webview.hostObjects.bridge;
-         await bridge.Func(testMessage)
+        await bridge.Func(testMessage);
+        console.log("Message sent successfully");
+      } catch (error) {
+        console.error("Error calling bridge:", error);
+      }
     }
 
-    callBridge("test message")
-
+    // Wrap your code in an async function
+    (async () => {
+      await callBridge("test message");
+    })();
 </script>
 </html>
