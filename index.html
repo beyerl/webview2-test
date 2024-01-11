@@ -13,8 +13,9 @@ Webview2 Test page https://beyerl.github.io/webview2-test/
     async function callBridge(testMessage) {
       try {
         const backendApi = chrome.webview.hostObjects.backendApi;
-        await backendApi.Callback(testMessage);
+        var result = await backendApi.Callback(testMessage);
         console.log("Message sent successfully");
+        return result;
       } catch (error) {
         console.error("Error calling bridge:", error);
       }
