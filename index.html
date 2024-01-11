@@ -14,7 +14,7 @@ Webview2 Test page
       try {
         // Assuming chrome.webview.hostObjects.bridge is available or properly initialized
         const bridge = chrome.webview.hostObjects.bridge;
-        await bridge.Func(testMessage);
+        await bridge.Callback(testMessage);
         console.log("Message sent successfully");
       } catch (error) {
         console.error("Error calling bridge:", error);
