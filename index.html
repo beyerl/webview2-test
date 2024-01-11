@@ -10,7 +10,12 @@
 Webview2 Test page
 </body>
 <script>
-    const bridge = chrome.webview.hostObjects.bridge;
-    await bridge.Func("test message")
+    async function callBridge(testMessage){
+        const bridge = chrome.webview.hostObjects.bridge;
+         await bridge.Func(testMessage)
+    }
+
+    callBridge("test message")
+
 </script>
 </html>
